@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import './Data.css';
 import BlogDataService from '../services/blog.services';
+import { Button, Modal } from 'react-bootstrap';
 
-const Data = () => {
+
+const Data = ({ getBlogId }) => {
     const [blogs, setBlogs] = useState([]);
+
 
     useEffect(() => {
         getBlogs();
@@ -25,27 +28,31 @@ const Data = () => {
     return (
         <>
 
-            <button className="btnRef" onClick={getBlogs}>Refresh List</button>
+            {/* <button className="btnRef" onClick={getBlogs}>Refresh List</button> */}
             {/* <pre>{JSON.stringify(blogs, undefined, 2)}</pre> */}
-            <table>
-                <tr>
-                    <th>Title</th>
-                    <th>Content</th>
-                    <th>Actions</th>
-                </tr>
-                {blogs.map((doc, index) => {
-                    return (
-                        <tr key={doc.id}>
-                            <td>{doc.title}</td>
-                            <td>{doc.content}</td>
-                            <td>
-                                {/* <button onClick={(e) => getBlogId(doc.id)}>Edit</button> */}
-                                <button className='btnDel' onClick={(e) => deleteHandler(doc.id)}>Delete</button>
-                            </td>
-                        </tr>
-                    )
-                })}
-            </table>
+            <div className="table">
+                <table class="table table-bordered">
+                    <thead className="table-light">
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Actions</th>
+                    </thead>
+                    {blogs.map((doc, index) => {
+                        return (
+                            <tr key={doc.id}>
+                                <td>{doc.title}</td>
+                                <td>{doc.content}</td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                        <Button type="button" className="btn btn-warning" onClick={(e) => getBlogId(doc.id)} >Edit</Button>
+                                        <Button type="button" className='btn btn-danger' onClick={(e) => deleteHandler(doc.id)}>Delete</Button>
+                                    </div>
+                                </td>
+                            </tr>
+                        )
+                    })}
+                </table>
+            </div>
         </>
     )
 }
