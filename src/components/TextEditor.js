@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { EditorState } from "draft-js";
+import { EditorState, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
+import draftToHtml from 'draftjs-to-html';
+import htmlToDraft from 'html-to-draftjs';
 import './TextEditor.css';
 
 
@@ -45,7 +47,8 @@ export default class TextEditor extends Component {
 
     onEditorStateChange = (editorState) => {
         // console.log(editorState.getCurrentContent().getPlainText())
-        this.props.setContent(editorState.getCurrentContent().getPlainText())
+        // this.props.setContent(editorState.getCurrentContent().getPlainText())
+        this.props.setContent(draftToHtml(convertToRaw(editorState.getCurrentContent())))
         this.setState({
             editorState,
         });

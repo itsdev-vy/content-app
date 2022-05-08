@@ -9,6 +9,7 @@ import NewModal from './components/NewModal';
 
 function App() {
   const [blogId, setBlogId] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const getBlogIdHandler = (id) => {
     console.log('Coming from App', id)
@@ -19,8 +20,8 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <NewModal id={blogId} setBlogId={setBlogId} />
-      <Data getBlogId={getBlogIdHandler} />
+      <NewModal id={blogId} setBlogId={setBlogId} setShowModal={setShowModal} showModal={showModal} />
+      <Data getBlogId={getBlogIdHandler} setShowModal={setShowModal} showModal={showModal} />
 
 
       {/* <blogContext.Provider value={{ blogId, setBlogId }}>

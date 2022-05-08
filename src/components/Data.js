@@ -4,7 +4,7 @@ import BlogDataService from '../services/blog.services';
 import { Button, Modal } from 'react-bootstrap';
 
 
-const Data = ({ getBlogId }) => {
+const Data = (props) => {
     const [blogs, setBlogs] = useState([]);
 
 
@@ -22,9 +22,13 @@ const Data = ({ getBlogId }) => {
     const deleteHandler = async (id) => {
         await BlogDataService.deleteBlog(id);
         //for refreshing the output list
-        getBlogs();
+        props.getBlogs();
+        debugger
     }
-
+    const handleEdit = (doc) => {
+        props.setShowModal(true)
+        props.getBlogId(doc.id)
+    }
     return (
         <>
 
@@ -41,10 +45,17 @@ const Data = ({ getBlogId }) => {
                         return (
                             <tr key={doc.id}>
                                 <td>{doc.title}</td>
-                                <td>{doc.content}</td>
+                                {/* <td>{doc.content}</td> */}
+                                <td>
+                                    <div
+                                        dangerouslySetInnerHTML={{
+                                            __html: doc.content
+                                        }}>
+                                    </div>
+                                </td>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                        <Button type="button" className="btn btn-warning" onClick={(e) => getBlogId(doc.id)} >Edit</Button>
+                                        <Button type="button" className="btn btn-warning" onClick={(e) => handleEdit(doc)} >Edit</Button>
                                         <Button type="button" className='btn btn-danger' onClick={(e) => deleteHandler(doc.id)}>Delete</Button>
                                     </div>
                                 </td>

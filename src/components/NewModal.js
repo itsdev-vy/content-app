@@ -5,8 +5,8 @@ import TextEditor from '../components/TextEditor';
 import './NewModal.css';
 
 
-const NewModal = ({ id, setBlogId }) => {
-    const [showModal, setShowModal] = useState(false);
+const NewModal = ({ showModal, setShowModal, id, setBlogId }) => {
+    // const [showModal, props.setShowModal] = useState(false);
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [message, setMessage] = useState({ error: false, msg: "" })
@@ -66,7 +66,7 @@ const NewModal = ({ id, setBlogId }) => {
                     <Modal.Header closeButton >Welcome, Let's create content</Modal.Header>
                     <Modal.Body>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Title</label>
+                            <label for="exampleFormControlInput1" className="form-label">Title</label>
                             <input type="email" className="form-control" id="exampleFormControlInput1" value={title} onChange={(e) => setTitle(e.target.value)} />
                         </div>
                         <div>
