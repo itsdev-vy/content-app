@@ -13,7 +13,7 @@ function uploadImageCallBack(file) {
         (resolve, reject) => {
             const xhr = new XMLHttpRequest();
             xhr.open('POST', 'https://api.imgur.com/3/image');
-            xhr.setRequestHeader('Authorization', 'Client-ID ##clientid###');
+            xhr.setRequestHeader('Authorization', 'Client-ID 2533e08d67ce1c7');
             const data = new FormData();
             data.append('image', file);
             xhr.send(data);
@@ -40,6 +40,7 @@ export default class TextEditor extends Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
 
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
@@ -81,6 +82,7 @@ export default class TextEditor extends Component {
                     link: { inDropdown: true },
                     history: { inDropdown: true },
                     image: { uploadCallback: uploadImageCallBack, alt: { present: true, mandatory: true } },
+                    // image: { inDropdown: true },
                 }}
             />
             {/* <button onClick={this.handleSubmit} className="btn-large waves-effect waves-light xbutton">Save</button> */}
