@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Data from './components/Data';
 import { blogContext } from './Context';
 import { Button, Modal } from 'react-bootstrap';
+import ThemeProvider from 'react-bootstrap/ThemeProvider';
 import NewModal from './components/NewModal';
 
 function App() {
@@ -18,16 +19,18 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Navbar />
-      <NewModal id={blogId} setBlogId={setBlogId} setShowModal={setShowModal} showModal={showModal} />
-      <Data getBlogId={getBlogIdHandler} setShowModal={setShowModal} showModal={showModal} />
+    <ThemeProvider breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}>
+      <div className="App">
+        <Navbar />
+        <NewModal id={blogId} setBlogId={setBlogId} setShowModal={setShowModal} showModal={showModal} />
+        <Data getBlogId={getBlogIdHandler} setShowModal={setShowModal} showModal={showModal} />
 
 
-      {/* <blogContext.Provider value={{ blogId, setBlogId }}>
+        {/* <blogContext.Provider value={{ blogId, setBlogId }}>
         <Main />
       </blogContext.Provider> */}
-    </div>
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -43,6 +43,7 @@ const NewModal = ({ showModal, setShowModal, id, setBlogId }) => {
         setMessage('');
         try {
             const docSnap = await BlogDataService.getBlog(id);
+            debugger
             console.log('the record is :', docSnap.data())
             setTitle(docSnap.data().title);
             setContent(docSnap.data().content);
