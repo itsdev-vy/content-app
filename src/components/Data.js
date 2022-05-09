@@ -50,7 +50,7 @@ const Data = (props) => {
                                     <td>{index + 1}</td>
                                     <td >{doc.title}</td>
                                     {/* <td>{doc.content}</td> */}
-                                    <td onClick={ContentModal}>
+                                    <td>
                                         <div
                                             dangerouslySetInnerHTML={{
                                                 __html: doc.content
