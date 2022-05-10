@@ -1,34 +1,11 @@
-/* table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td,
-th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-  color: white;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-.btnRef {
-  color: white;
-}
-
-.btnDel {
-  color: white;
-}
-
-.btnEdit {
-  color: white;
-} */
-
-/* #tdi img {
+.con {
+  box-sizing: content-box;
+  width: 900px;
   height: 100px;
-  width: 150px;
-} */
+  padding: 30px;
+}
+
+.cont {
+  max-height: 250px;
+  overflow: auto;
+}

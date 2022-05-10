@@ -1,4 +1,5 @@
 import { Button, Modal } from 'react-bootstrap';
+import './ContentModal.css';
 
 const ContentModal = ({ popModal, closeModal, conData }) => {
     const fullscreen = true;
@@ -6,12 +7,12 @@ const ContentModal = ({ popModal, closeModal, conData }) => {
     return (
         <div>
             <Modal show={popModal} fullscreen={fullscreen} onHide={closeModal} >
-                <Modal.Header closeButton>Welcome</Modal.Header>
-                <Modal.Body>
+                <Modal.Header closeButton></Modal.Header>
+                <Modal.Body >
                     <div
                         dangerouslySetInnerHTML={{
                             __html: conData
-                        }} />
+                        }} className="content" />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button className='btn btn-danger' onClick={closeModal}>Close</Button>

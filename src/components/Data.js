@@ -64,11 +64,11 @@ const Data = (props) => {
                                     <td>{index + 1}</td>
                                     <td >{doc.title}</td>
                                     {/* <td>{doc.content}</td> */}
-                                    <td onClick={() => openModal(doc.content)}>
+                                    <td onClick={() => openModal(doc.content)} className='con'>
                                         <div
                                             dangerouslySetInnerHTML={{
                                                 __html: doc.content
-                                            }} >
+                                            }} className='cont'>
                                         </div>
                                     </td>
                                     <td>
