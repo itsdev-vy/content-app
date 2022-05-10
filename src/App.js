@@ -25,7 +25,6 @@ function App() {
         <NewModal id={blogId} setBlogId={setBlogId} setShowModal={setShowModal} showModal={showModal} />
         <Data getBlogId={getBlogIdHandler} setShowModal={setShowModal} showModal={showModal} />
 
-
         {/* <blogContext.Provider value={{ blogId, setBlogId }}>
         <Main />
       </blogContext.Provider> */}

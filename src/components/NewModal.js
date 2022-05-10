@@ -10,6 +10,7 @@ const NewModal = ({ showModal, setShowModal, id, setBlogId }) => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [message, setMessage] = useState({ error: false, msg: "" })
+    const [blogs, setBlogs] = useState([]);
 
     console.log("PARENT NEWMODAL", title);
     console.log("PARENT NEWMODAL", content);
@@ -38,6 +39,7 @@ const NewModal = ({ showModal, setShowModal, id, setBlogId }) => {
         setContent('');
         setShowModal(false);
     };
+
 
     const editHandler = async () => {
         setMessage('');

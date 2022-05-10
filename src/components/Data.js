@@ -13,7 +13,7 @@ const Data = (props) => {
 
     useEffect(() => {
         getBlogs();
-    }, []);
+    }, [props.getBlogId]);
 
     const getBlogs = async () => {
         const data = await BlogDataService.getAllBlogs();
@@ -25,7 +25,7 @@ const Data = (props) => {
     const deleteHandler = async (id) => {
         await BlogDataService.deleteBlog(id);
         //for refreshing the output list
-        props.getBlogs();
+        props.getBlogId();
     }
     const handleEdit = (doc) => {
         props.setShowModal(true)
