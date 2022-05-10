@@ -7,6 +7,8 @@ import ContentModal from './ContentModal';
 
 const Data = (props) => {
     const [blogs, setBlogs] = useState([]);
+    const [conModal, setConModal] = useState(false);
+    const [xyz, setXyz] = useState(null)
 
 
     useEffect(() => {
@@ -30,12 +32,24 @@ const Data = (props) => {
         props.getBlogId(doc.id)
     }
 
+    const openModal = (data) => {
+        setConModal(true);
+        setXyz(data)
+    }
+
+    const closeModal = () => {
+        setConModal(false);
+    }
+
+
     return (
         <>
 
             {/* <button className="btnRef" onClick={getBlogs}>Refresh List</button> */}
             {/* <pre>{JSON.stringify(blogs, undefined, 2)}</pre> */}
             <div>
+                <ContentModal popModal={conModal} closeModal={() => closeModal()} conData={xyz} />
+
                 <Table className="table table-bordered">
                     <thead className="table-light w-auto small">
                         <th>#</th>
@@ -50,14 +64,11 @@ const Data = (props) => {
                                     <td>{index + 1}</td>
                                     <td >{doc.title}</td>
                                     {/* <td>{doc.content}</td> */}
-                                    <td>
+                                    <td onClick={() => openModal(doc.content)}>
                                         <div
                                             dangerouslySetInnerHTML={{
                                                 __html: doc.content
                                             }} >
-                                        </div>
-                                        <div>
-                                            <ContentModal conData={doc.content} />
                                         </div>
                                     </td>
                                     <td>
