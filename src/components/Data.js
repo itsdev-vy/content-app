@@ -7,8 +7,8 @@ import ContentModal from './ContentModal';
 
 const Data = (props) => {
     const [blogs, setBlogs] = useState([]);
+    const [content, setContent] = useState(null);
     const [conModal, setConModal] = useState(false);
-    const [xyz, setXyz] = useState(null)
 
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const Data = (props) => {
 
     const openModal = (data) => {
         setConModal(true);
-        setXyz(data)
+        setContent(data);
     }
 
     const closeModal = () => {
@@ -48,7 +48,7 @@ const Data = (props) => {
             {/* <button className="btnRef" onClick={getBlogs}>Refresh List</button> */}
             {/* <pre>{JSON.stringify(blogs, undefined, 2)}</pre> */}
             <div>
-                <ContentModal popModal={conModal} closeModal={() => closeModal()} conData={xyz} />
+                <ContentModal popModal={conModal} closeModal={closeModal} conData={content} />
 
                 <Table className="table table-bordered">
                     <thead className="table-light w-auto small">
