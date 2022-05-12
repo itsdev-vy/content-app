@@ -1,6 +1,6 @@
 .con {
   box-sizing: content-box;
-  width: 900px;
+  max-width: 900px;
   height: 100px;
   padding: 30px;
 }

@@ -1,0 +1,26 @@
+.head {
+  color: #8b8b8b;
+  border-width: 2px 0 !important;
+  margin-left: 50px !important;
+}
+
+.headB {
+  background-color: aquamarine;
+}
+
+.new {
+  color: #5da691;
+}
+
+.space {
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.table-responsive {
+  border-radius: 12px !important;
+}
+
+.pos {
+  margin-top: 5px !important;
+}
