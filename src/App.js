@@ -8,8 +8,10 @@ import './App.css';
 // import ThemeProvider from 'react-bootstrap/ThemeProvider';
 // import NewModal from './components/NewModal';
 import Header from './components/Header/Header';
-import Add from './components/List/Add';
-import Content from './components/List/Content';
+// import Add from './components/List/Add';
+// import Content from './components/List/Content';
+import AddVideo from './components/VideoList/AddVideo';
+import ContentVideo from './components/VideoList/ContentVideo';
 
 function App() {
   // const [blogId, setBlogId] = useState("");
@@ -18,14 +20,19 @@ function App() {
   // const getBlogIdHandler = (id) => {
   //   console.log('Coming from App', id)
   //   setBlogId(id);
-
   // }
 
   return (
     <>
-      <Header />
+      {/* Content page */}
+      {/* <Header />
       <Add />
-      <Content />
+      <Content /> */}
+
+      {/* Video Content page */}
+      <Header />
+      <AddVideo />
+      <ContentVideo />
     </>
     // <ThemeProvider breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}>
     //   <div className="App">
